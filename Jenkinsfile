@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'Installing Node.js v22...'
                 sh '''
-                    sudo curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+                    sudo curl -fsSL https://deb.nodesource.com/setup_22.x | sudo bash -
                     sudo apt-get install -y nodejs
                 '''
             }
@@ -14,6 +14,7 @@ pipeline {
 
         stage('Build') {
             steps {
+                echo 'Showing npm version'
                 sh 'npm --version'
             }
         }
